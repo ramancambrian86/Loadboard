@@ -1,0 +1,77 @@
+﻿<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Delete</title>
+
+    <style>
+        .container {
+            padding: 2rem 0rem;
+        }
+
+        h4 {
+            margin: 2rem 0rem 1rem;
+        }
+
+        .table-image {
+            td, th
+
+        {
+            vertical-align: middle;
+        }
+        }
+    </style>
+</head>
+<body>
+
+    @model TransportInventoryApp.Models.Product
+
+    <h3 style="text-align: center;">Deleting product</h3>
+
+    <h3 style="text-align: center;">Would you like to continue?</h3>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">@Html.DisplayNameFor(model => model.Id)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.Name)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.Quantity)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.Price)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(model => model.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Quantity)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Price)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <form asp-action="Delete">
+                                    <input type="hidden" asp-for="Id" />
+                                    <input class="btn btn-primary" type="submit" value="Yes" />
+                                    <a class="btn btn-danger" asp-action="Index">No</a>
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

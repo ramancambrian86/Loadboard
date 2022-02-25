@@ -1,0 +1,46 @@
+﻿<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Login</title>
+</head>
+<body>
+
+    <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                        <div class="card-body p-5 text-center">
+
+                            <div class="mb-md-5 mt-md-4 pb-5">
+                                <h3 class="text-danger">@ViewBag.error</h3>
+                                <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                                <p class="text-white-50">Please enter your login and password!</p>
+
+                                <form method="post" asp-controller="account" asp-action="login">
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="text" id="typeEmailX" name="username" class="form-control form-control-lg" />
+                                        <label class="form-label" for="typeEmailX">Username</label>
+                                    </div>
+
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="password" id="typePasswordX" name="password" class="form-control form-control-lg" />
+                                        <label class="form-label" for="typePasswordX">Password</label>
+                                    </div>
+
+                                    <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

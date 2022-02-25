@@ -1,0 +1,70 @@
+﻿<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>AddOrEdit</title>
+</head>
+<body>
+
+    @model TransportInventoryApp.Models.Product
+
+    <div class="container p-3 my-3 border">
+        <h3 style="text-align: center;">@ViewBag.PageName</h3>
+
+        <form asp-action="AddOrEdit">
+            @if (@ViewBag.IsEdit)
+            {
+                <input type="hidden" asp-for="Id" />
+            }
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity"></label>
+                <input asp-for="Quantity" class="form-control">
+            </div>
+            <div class="form-group">
+                <label asp-for="Price"></label>
+                <input asp-for="Price" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+
+        @*<div class="row">
+            <div class="col-sm-6">
+                <hr />
+                <form asp-action="AddOrEdit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    @if (@ViewBag.IsEdit)
+                    {
+                        <input type="hidden" asp-for="Id" />
+                    }
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Quantity" class="control-label"></label>
+                        <input asp-for="Quantity" class="form-control" />
+                        <span asp-validation-for="Quantity" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Price" class="control-label"></label>
+                        <input asp-for="Price" class="form-control" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input class="btn btn-primary" type="submit" value="Save" />
+                        <a class="btn btn-danger" asp-action="Index">Back</a>
+                    </div>
+                </form>
+            </div>
+        </div>*@
+    </div>
+    
+    </body>
+</html>

@@ -1,0 +1,94 @@
+﻿@using Microsoft.AspNetCore.Http;
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Products</title>
+    <style>
+        .container {
+            padding: 2rem 0rem;
+        }
+
+        h4 {
+            margin: 2rem 0rem 1rem;
+        }
+
+        .table-image {
+            td, th
+
+        {
+            vertical-align: middle;
+        }
+
+        }
+    </style>
+</head>
+<body>
+
+    @model IEnumerable<TransportInventoryApp.Models.Product>
+
+    <h1 style="text-align: center;">Welcome @Context.Session.GetString("username")</h1>
+    <h3 style="text-align: center;">Products List</h3>
+
+    @*<p style="text-align:right;margin-right:20px;">
+            <a class="btn btn-primary" asp-action="AddOrEdit">Create New</a>
+        </p>*@
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th colspan="6" style="text-align:right">
+                                <a class="btn btn-danger" asp-controller="account" asp-action="logout">Logout</a>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="6">
+                                <a class="btn btn-primary" asp-action="AddOrEdit">Create New</a>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th scope="col">@Html.DisplayNameFor(model => model.Id)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.Name)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.Quantity)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.Price)</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Id)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Quantity)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Price)
+                                </td>
+                                <td>
+                                    <a asp-action="AddOrEdit" class="btn btn-primary" asp-route-Id="@item.Id">Edit</a>
+                                </td>
+                                <td>
+                                    <a asp-action="Delete" class="btn btn-danger" asp-route-Id="@item.Id">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
